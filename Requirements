@@ -1,0 +1,52 @@
+Project 9: Protein analyzer
+
+This Python program should contain classes and methods to analyze protein sequences and structures.
+For this program you can use Biopython and other 3rd party packages.
+
+•01.	A method to retrieve a set of SwissProt records when their IDs are given as a list
+(in a text file).
+This method should save their sequences in FASTA format in separate files.
+
+•02.	A method that takes a set of protein sequences as an input (text/FASTA file)
+and scan the Expasy Prosite database.
+As the output, it should create a text file that prints the domain coordinates,
+domain IDs and Domain names found for each sequence.
+Please note that one input sequence can get multiple domain hits.
+
+•03.	A method to download multiple PDB files when their PDB IDs are given as a list
+(in a text file).
+Moreover, this method should create a single FASTA file that contains all the
+sequences of the downloaded PDB files in FASTA format
+(you can include the PDB ID as the FASTA header).
+
+•04.	A method that takes PDB file as an input and outputs the number of chains,
+residues, and atoms for each residue in the protein (in a text file).
+
+•05.	Write a new method to expand the above method to create separate text files
+for multiple PDB files given as an input (A text file containing multiple PDB IDs).
+
+•06.	Method that prints all the hetero (non-protein) residues of given PDB file.
+
+•07.	A method that outputs the coordinates of a given atom (S, C-alpha, N, O, etc.)
+
+01.
+Overwhelming the UniProt servers means sending too many requests in a short time, which can cause **rate limiting**,
+temporary IP bans, or server slowdowns.
+
+### **Why `time.sleep(1)`?**
+- It **pauses the script for 1 second** between requests.
+- This **prevents flooding UniProt** with too many queries at once.
+- UniProt may **block your IP** if requests are too frequent.
+
+### **Can I Remove `time.sleep(1)`?**
+Yes, but:
+- If you have **only a few IDs**, removing it is fine.
+- If fetching **many records**, UniProt **might refuse** your requests.
+
+### **Alternative Approach:**
+Instead of `time.sleep(1)`, you can:
+- **Batch queries** (fetch multiple records in one request).
+- **Check UniProt API rate limits** and adjust accordingly.
+
+
+
